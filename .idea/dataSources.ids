@@ -8,15 +8,108 @@
     <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower"/>
     <database-model serializer="dbm" rdbms="MYSQL" format-version="2.2">
       <schema id="1" name="paal_db"/>
-      <table id="2" parent="1" name="testtable"/>
-      <column id="3" parent="2" name="TestValue1">
+      <table id="2" parent="1" name="accounts"/>
+      <table id="3" parent="1" name="transactions"/>
+      <table id="4" parent="1" name="users"/>
+      <column id="5" parent="2" name="acc_ID">
         <mandatory>1</mandatory>
         <data-type>int(11)</data-type>
       </column>
-      <column id="4" parent="2" name="TestValue2">
+      <column id="6" parent="2" name="balance">
         <mandatory>1</mandatory>
-        <data-type>varchar(50)</data-type>
+        <data-type>decimal(13,2)</data-type>
       </column>
+      <column id="7" parent="2" name="payment_limit">
+        <mandatory>1</mandatory>
+        <data-type>decimal(13,2)</data-type>
+        <default-expression>&apos;2000.00&apos;</default-expression>
+      </column>
+      <column id="8" parent="2" name="type">
+        <mandatory>1</mandatory>
+        <data-type>enum(&apos;Sparkonto&apos;, &apos;Privatkonto&apos;, &apos;Jugendkonto&apos;, &apos;Säule 3&apos;, &apos;&apos;)</data-type>
+      </column>
+      <column id="9" parent="2" name="user_ID">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <key id="10" parent="2" name="PRIMARY">
+        <columns>acc_ID</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="11" parent="2" name="accounts_ibfk_1">
+        <columns>user_ID</columns>
+        <ref-key>users.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="12" parent="3" name="trans_ID">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="13" parent="3" name="trans_ammount">
+        <mandatory>1</mandatory>
+        <data-type>decimal(13,2)</data-type>
+      </column>
+      <column id="14" parent="3" name="trans_sender">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="15" parent="3" name="trans_reciever">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <key id="16" parent="3" name="PRIMARY">
+        <columns>trans_ID</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="17" parent="3" name="transactions_ibfk_1">
+        <columns>trans_sender</columns>
+        <ref-key>accounts.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="18" parent="3" name="transactions_ibfk_2">
+        <columns>trans_reciever</columns>
+        <ref-key>accounts.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="19" parent="4" name="ID">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="20" parent="4" name="username">
+        <mandatory>1</mandatory>
+        <data-type>varchar(40)</data-type>
+      </column>
+      <column id="21" parent="4" name="firstname">
+        <mandatory>1</mandatory>
+        <data-type>varchar(40)</data-type>
+      </column>
+      <column id="22" parent="4" name="lastname">
+        <mandatory>1</mandatory>
+        <data-type>varchar(40)</data-type>
+      </column>
+      <column id="23" parent="4" name="password">
+        <mandatory>1</mandatory>
+        <data-type>varchar(128)</data-type>
+      </column>
+      <column id="24" parent="4" name="lesalteur">
+        <mandatory>1</mandatory>
+        <data-type>varchar(64)</data-type>
+      </column>
+      <index id="25" parent="4" name="username">
+        <columns>username</columns>
+        <unique>1</unique>
+      </index>
+      <key id="26" parent="4" name="PRIMARY">
+        <columns>ID</columns>
+        <primary>1</primary>
+      </key>
+      <key id="27" parent="4" name="username">
+        <columns>username</columns>
+        <underlying-index>username</underlying-index>
+      </key>
     </database-model>
   </data-source>
 </component>

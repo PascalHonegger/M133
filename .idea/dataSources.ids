@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="MySQL - paal_db@localhost" uuid="49d517b2-6fa6-4cbe-914b-93c77bbe506b">
+    <database-info product="MySQL" version="5.5.5-10.0.17-MariaDB" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.35 ( Revision: 5fb9c5849535c13917c2cf9baaece6ef9693ef27 )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower"/>
+    <database-model serializer="dbm" rdbms="MYSQL" format-version="2.2">
+      <schema id="1" name="paal_db"/>
+      <table id="2" parent="1" name="testtable"/>
+      <column id="3" parent="2" name="TestValue1">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="4" parent="2" name="TestValue2">
+        <mandatory>1</mandatory>
+        <data-type>varchar(50)</data-type>
+      </column>
+    </database-model>
+  </data-source>
+</component>

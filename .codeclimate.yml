@@ -1,0 +1,11 @@
+languages:
+   Ruby: false
+   JavaScript: true
+   Python: false
+   PHP: true
+exclude_paths:
+- .idea/*
+- css/*
+- design/*
+- dokumentation/*
+- SQL/*

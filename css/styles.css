@@ -1,19 +1,22 @@
 body    {
             font-family: "Century Gothic";
+            color: rgb(50,50,50);
+            background-color: rgb(235,235,211);
         }
 #container  {
                 border-radius: 10px;
                 margin-left: auto;
                 margin-right: auto;
                 min-width: 500px;
-                width: 88%;
-                background-color: green;
+                width: 1100px;
+                background-color: transparent;
 
             }
 #header     {
-                width: 100%;
+                width: 1100px;
                 height: 130px;
-                background-color: rgba(200,200,200,0.5);
+                background-color: rgb(175,175,175);
+                background-color: rgba(175,175,175,1);
                 border-radius: 10px;
                 padding-top: 5px;
                 position: relative;
@@ -27,10 +30,57 @@ body    {
                 position: relative;
 }
 #navigation {
-                min-width: 330px;
+                min-width: 300px;
                 width: auto;
                 float: right;
-                background-color: darkcyan;
                 position: relative;
                 margin-right: 15px;
-}
+                margin-top: 31px;
+            }
+#navlist    {
+                list-style-type: none;
+                font-size: 22px;
+                width:auto;
+                height:auto;
+                border-top: rgb(50,50,50) 2px solid;
+            }
+.navbutton  {
+                position: relative;
+                background-color: rgb(175,175,175);
+                width: 175px;
+                height: 50%;
+                padding-top: 48px;
+                float:left;
+                text-align: center;
+                }
+.navbutton:hover{
+                    padding-top: 44px;
+                    border-bottom: rgb(50,50,50) 3px solid;
+                }
+#maincontent    {
+                    position: relative;
+                    background-color: rgb(235,235,211);
+                    width: 1100px;
+                    border-radius: 10px;
+                    padding: 15px 0px 15px 0px;
+                    min-height: 670px;
+                    margin-top: 10px;
+                }
+#menu           {
+                    width: 173px;
+                    min-height: 670px;
+                    background-color: rgb(175,175,175);
+                    position: relative;
+                    float: left;
+                    border-radius: 10px;
+                    border: rgb(50,50,50) solid 2px;
+                }
+#content    {
+                position: relative;
+                width: 904px;
+                min-height: 670px;
+                background-color: rgb(175,175,175);
+                border-radius: 10px;
+                float: right;
+                border: rgb(50,50,50) solid 2px;
+            }

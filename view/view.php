@@ -13,9 +13,9 @@
             </div>
             <div id="navigation">
                 <ul id="navlist">
-                    <li>Main</li>
-                    <li>Moneywaste</li>
-                    <li>Monywastepreventor</li>
+                    <li class="navbutton" >Budget</li>
+                    <li class="navbutton">Bank</li>
+                    <li class="navbutton">Login</li>
                 </ul>
             </div>
 
@@ -24,7 +24,7 @@
             <div id="menu">
 
             </div>
-            <div id="contnet">
+            <div id="content">
 
             </div>
         </div>

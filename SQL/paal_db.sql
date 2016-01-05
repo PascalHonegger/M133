@@ -54,12 +54,12 @@ CREATE TABLE IF NOT EXISTS `transactions` (
 --
 
 CREATE TABLE IF NOT EXISTS `users` (
-  `ID` int(11) NOT NULL,
-  `username` varchar(40) NOT NULL,
-  `firstname` varchar(40) NOT NULL,
-  `lastname` varchar(40) NOT NULL,
-  `password` varchar(128) NOT NULL,
-  `lesalteur` varchar(64) NOT NULL
+  `ID`        int(11)      NOT NULL,
+  `username`  varchar(40)  NOT NULL,
+  `firstname` varchar(40)  NOT NULL,
+  `lastname`  varchar(40)  NOT NULL,
+  `password`  varchar(128) NOT NULL,
+  `salt`      VARCHAR(64)  NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --

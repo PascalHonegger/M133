@@ -1,0 +1,36 @@
+body    {
+            font-family: "Century Gothic";
+        }
+#container  {
+                border-radius: 10px;
+                margin-left: auto;
+                margin-right: auto;
+                min-width: 500px;
+                width: 88%;
+                background-color: green;
+
+            }
+#header     {
+                width: 100%;
+                height: 130px;
+                background-color: rgba(200,200,200,0.5);
+                border-radius: 10px;
+                padding-top: 5px;
+                position: relative;
+            }
+#headerlogo {
+                background-image: url(../design/headerlogo.png);
+                margin-left: 15px;
+                width: 162px;
+                height: 120px;
+                float: left;
+                position: relative;
+}
+#navigation {
+                min-width: 330px;
+                width: auto;
+                float: right;
+                background-color: darkcyan;
+                position: relative;
+                margin-right: 15px;
+}

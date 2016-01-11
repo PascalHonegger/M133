@@ -30,4 +30,6 @@ exclude_paths:
 - ".idea/*"
 - design/*
 - dokumentation/*
+- dokumentation/UML/*
 - SQL/*
+- include/GoogleAuthenticator/*

@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.4.14
+-- version 4.5.0.2
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 08. Dez 2015 um 15:15
--- Server-Version: 5.6.26
--- PHP-Version: 5.5.28
+-- Erstellungszeit: 11. Jan 2016 um 19:33
+-- Server-Version: 10.0.17-MariaDB
+-- PHP-Version: 5.6.14
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -23,16 +23,18 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `konto`
+-- Tabellenstruktur für Tabelle `accounts`
 --
 
-CREATE TABLE IF NOT EXISTS `accounts` (
+CREATE TABLE `accounts` (
   `acc_ID` int(11) NOT NULL,
   `balance` decimal(13,2) NOT NULL,
   `payment_limit` decimal(13,2) NOT NULL DEFAULT '2000.00',
   `type` enum('Sparkonto','Privatkonto','Jugendkonto','Säule 3','') NOT NULL,
   `user_ID` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+)
+  ENGINE = InnoDB
+  DEFAULT CHARSET = latin1;
 
 -- --------------------------------------------------------
 
@@ -40,11 +42,12 @@ CREATE TABLE IF NOT EXISTS `accounts` (
 -- Tabellenstruktur für Tabelle `transactions`
 --
 
-CREATE TABLE IF NOT EXISTS `transactions` (
-  `trans_ID` int(11) NOT NULL,
-  `trans_ammount` decimal(13,2) NOT NULL,
-  `trans_sender` int(11) NOT NULL,
-  `trans_reciever` int(11) NOT NULL
+CREATE TABLE `transactions` (
+  `trans_ID`       INT(11)                                                                                                                                NOT NULL,
+  `trans_ammount`  DECIMAL(13, 2)                                                                                                                         NOT NULL,
+  `trans_sender`   INT(11)                                                                                                                                NOT NULL,
+  `trans_reciever` INT(11)                                                                                                                                NOT NULL,
+  `trans_type`     ENUM('Miete', 'Haushalt', 'Freizeit', 'Online', 'Einkaufen', 'Reisen', 'Gesundheit', 'Steuern & Versicherungen', 'Ferien', 'Diverses') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -53,13 +56,13 @@ CREATE TABLE IF NOT EXISTS `transactions` (
 -- Tabellenstruktur für Tabelle `users`
 --
 
-CREATE TABLE IF NOT EXISTS `users` (
-  `ID`        int(11)      NOT NULL,
-  `username`  varchar(40)  NOT NULL,
-  `firstname` varchar(40)  NOT NULL,
-  `lastname`  varchar(40)  NOT NULL,
-  `password`  varchar(128) NOT NULL,
-  `salt`      VARCHAR(64)  NOT NULL
+CREATE TABLE `users` (
+  `ID`        INT(11)      NOT NULL,
+  `username`  VARCHAR(40)  NOT NULL,
+  `firstname` VARCHAR(40)  NOT NULL,
+  `lastname`  VARCHAR(40)  NOT NULL,
+  `password`  VARCHAR(128) NOT NULL,
+  `secret`    VARCHAR(16)  NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -67,7 +70,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 
 --
--- Indizes für die Tabelle `konto`
+-- Indizes für die Tabelle `accounts`
 --
 ALTER TABLE `accounts`
   ADD PRIMARY KEY (`acc_ID`),
@@ -93,10 +96,10 @@ ALTER TABLE `users`
 --
 
 --
--- AUTO_INCREMENT für Tabelle `konto`
+-- AUTO_INCREMENT für Tabelle `accounts`
 --
 ALTER TABLE `accounts`
-  MODIFY `acc_ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+MODIFY `acc_ID` INT(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT für Tabelle `transactions`
 --
@@ -112,17 +115,17 @@ ALTER TABLE `users`
 --
 
 --
--- Constraints der Tabelle `konto`
+-- Constraints der Tabelle `accounts`
 --
 ALTER TABLE `accounts`
-  ADD FOREIGN KEY (`user_ID`) REFERENCES `users` (`ID`);
+ADD CONSTRAINT `accounts_ibfk_1` FOREIGN KEY (`user_ID`) REFERENCES `users` (`ID`);
 
 --
 -- Constraints der Tabelle `transactions`
 --
 ALTER TABLE `transactions`
-  ADD FOREIGN KEY (`trans_sender`) REFERENCES `accounts` (`acc_ID`),
-  ADD FOREIGN KEY (`trans_reciever`) REFERENCES `accounts` (`acc_ID`);
+ADD CONSTRAINT `transactions_ibfk_1` FOREIGN KEY (`trans_sender`) REFERENCES `accounts` (`acc_ID`),
+ADD CONSTRAINT `transactions_ibfk_2` FOREIGN KEY (`trans_reciever`) REFERENCES `accounts` (`acc_ID`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

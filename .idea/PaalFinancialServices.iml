@@ -7,8 +7,8 @@
       <sourceFolder url="file://$MODULE_DIR$/include/GoogleAuthenticator/example" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/include/GoogleAuthenticator/PHPGangsta" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/include/GoogleAuthenticator/tests" isTestSource="false" />
-      <excludeFolder url="file://$MODULE_DIR$/Dokumentation" />
-      <excludeFolder url="file://$MODULE_DIR$/Dokumentation/UML" />
+      <excludeFolder url="file://$MODULE_DIR$/dokumentation" />
+      <excludeFolder url="file://$MODULE_DIR$/dokumentation/UML" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

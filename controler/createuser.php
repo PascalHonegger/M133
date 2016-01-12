@@ -6,27 +6,29 @@ require_once '../include/db_connection.inc';
 $ga = new PHPGangsta_GoogleAuthenticator();
 
 $loginState = isset($_SESSION['LoginState']) ? $_SESSION['LoginState'] : 0;
-$selectedPassword = isset($_SESSION['SelectedPassword']) ? $_SESSION['SelectedPassword'] : null;
-$repeatPassword = isset($_SESSION['RepeatPassword']) ? $_SESSION['RepeatPassword'] : null;
-$selectedUsername = isset($_SESSION['SelectedUsername']) ? $_SESSION['SelectedUsername'] : null;
-$selectedLastName = isset($_SESSION['SelectedLastName']) ? $_SESSION['SelectedLastName'] : null;
-$selectedFirstName = isset($_SESSION['SelectedFirstName']) ? $_SESSION['SelectedFirstName'] : null;
-$googleAuthenticatorSecret = isset($_SESSION['GoogleAuthenticatorSecret']) ? $_SESSION['GoogleAuthenticatorSecret'] : null;
-$googleAuthenticatorCode = isset($_SESSION['GoogleAuthenticatorCode']) ? $_SESSION['GoogleAuthenticatorCode'] : null;
+$selectedPassword = isset($_POST['SelectedPassword']) ? $_POST['SelectedPassword'] : null;
+$repeatPassword = isset($_POST['RepeatPassword']) ? $_POST['RepeatPassword'] : null;
+$selectedUsername = isset($_POST['SelectedUsername']) ? $_POST['SelectedUsername'] : null;
+$selectedLastName = isset($_POST['SelectedLastName']) ? $_POST['SelectedLastName'] : null;
+$selectedFirstName = isset($_POST['SelectedFirstName']) ? $_POST['SelectedFirstName'] : null;
+$googleAuthenticatorSecret = isset($_POST['GoogleAuthenticatorSecret']) ? $_POST['GoogleAuthenticatorSecret'] : null;
+$googleAuthenticatorCode = isset($_POST['GoogleAuthenticatorCode']) ? $_POST['GoogleAuthenticatorCode'] : null;
 
 $checkResult = $ga->verifyCode($googleAuthenticatorSecret, $googleAuthenticatorCode, 2);    // 2 = 2*30sec clock tolerance
 
-if ($checkResult && preg_match("^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{8,}", $selectedPassword)) {
+$correctPassword = preg_match('/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{8,}/', $selectedPassword);
+
+if ($checkResult && $correctPassword) {
     $db = $_SESSION['DBConnection'];
 
     $options = [
-        'cost' => 42,
+        'cost' => 11,
         'salt' => mcrypt_create_iv(22, MCRYPT_DEV_URANDOM),
     ];
 
     $hashedPassword = password_hash($selectedPassword, PASSWORD_BCRYPT, $options) . "\n";
 
-    $query = "INSERT INTO users(username, firstname, lastname, password, secret) VALUES($selectedUsername, $selectedFirstName, $selectedLastName, $hashedPassword, $googleAuthenticatorSecret)";
+    $query = "INSERT INTO users(username, firstname, lastname, password, secret) VALUES('$selectedUsername', '$selectedFirstName', '$selectedLastName', '$hashedPassword', '$googleAuthenticatorSecret')";
 
     mysqli_query($db, $query);
 

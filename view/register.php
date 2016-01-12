@@ -18,7 +18,7 @@
 
             $secret = $ga->createSecret();
 
-            $qrCodeUrl = $ga->getQRCodeGoogleUrl('pascal.honegger@test.ch', $secret);
+            $qrCodeUrl = $ga->getQRCodeGoogleUrl('support@paal.ch', $secret);
 
             echo '<image src="' . $qrCodeUrl . '"">';
 
@@ -75,7 +75,8 @@
             <label for="GoogleAuthenticatorSecret">Secret: </label>
         </td>
         <td>
-            <input id="GoogleAuthenticatorSecret" name="GoogleAuthenticatorSecret" value="<?php echo $secret; ?>" disabled>
+            <input id="GoogleAuthenticatorSecret" name="GoogleAuthenticatorSecret" value="<?php echo $secret; ?>"
+                   readonly>
         </td>
     </tr>
 

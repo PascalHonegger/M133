@@ -1,7 +1,12 @@
 <div id="logindiv">
-    <h3 id="h3" >Login</h3>
-    <form id="login">
-        <input type="text">
-        <input type="password">
+    <h3>Login</h3>
+    <form id="login" action="../controler/createuser.php" method="post">
+        <label for="LoginUsername">Benutzername</label><input id="LoginUsername" name="LoginUsername"
+                                                              required="required">
+        <label for="LoginPassword">Passwort</label><input id="LoginPassword" name="LoginPassword" type="password"
+                                                          required="required">
+        <label for="LoginGoogleAuthenticatorCode">Authenticator-Code</label><input id="LoginGoogleAuthenticatorCode"
+                                                                                   name="LoginGoogleAuthenticatorCode">
+        <input type="submit">
     </form>
 </div>

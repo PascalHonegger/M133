@@ -1,7 +1,8 @@
-<!doctype html>
-<html lang="de-ch">
+<!DOCTYPE html>
+<html lang="en">
     <head>
-        <meta charset="utf-8">
+        <link rel="stylesheet" href="../css/styles.css">
+        <meta charset="UTF-8">
         <title>Paal Financial Services</title>
         <meta name="description" content="Paal Financial Services">
         <meta name="author" content="PaAl">
@@ -9,11 +10,8 @@
     </head>
     <body>
         <script src="js/scripts.js"></script>
-        <p>
-            Hallo Welt!
-        </p>
-        <form method="post" action="include/db_connection.inc">
-            <input type="submit" value="Test-Button">
-        </form>
+        <?php
+        include_once("view/view.php");
+        ?>
     </body>
 </html>

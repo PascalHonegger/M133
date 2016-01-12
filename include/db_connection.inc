@@ -6,6 +6,8 @@
  * Time: 15:25
  */
 
+session_start();
+
 $user = "paal_admin";
 $pass = "paal_password";
 $DBName = "paal_db";

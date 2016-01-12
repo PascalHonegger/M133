@@ -1,11 +1,11 @@
+/*****   Overall Styles   *****/
 body    {
             font-family: "Century Gothic";
             color: rgb(50,50,50);
             background-color: rgb(235,235,211);
         }
-a       {
-            color: rgb(50,50,50);
-        }
+
+/*****   BASIC LAYOUT   *****/
 #container  {
                 border-radius: 10px;
                 margin-left: auto;
@@ -47,6 +47,9 @@ a       {
                 height:auto;
                 border-top: rgb(50,50,50) 2px solid;
             }
+#navlist a    {
+                    color: rgb(50,50,50);
+                }
 .navbutton  {
                 position: relative;
                 background-color: rgb(140,140,140);
@@ -96,4 +99,13 @@ a       {
                 background-color: rgb(175,175,175);
                 border-radius: 10px;
                 border: 2px solid rgb(50,50,50);
+            }
+
+/*****   Login   *****/
+#logindiv   {
+                width: 100%;
+                height: auto;
+                background-color: darkcyan;
+                margin-top: 10px;
+                position: relative;
             }

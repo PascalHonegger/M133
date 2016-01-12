@@ -22,7 +22,7 @@
         </div>
         <div id="maincontent">
             <div id="menu">
-
+                <?php include 'login.php'; ?>
             </div>
             <div id="content">
 

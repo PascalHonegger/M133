@@ -33,8 +33,10 @@
                         include 'register.php';
                     }
                 }
-
-                echo 'Hacckkkkuur::((!!!!!';
+                else
+                {
+                    echo '<p>Hacckkkkuur::((!!!!!</p>';
+                }
                 ?>
 
             </div>

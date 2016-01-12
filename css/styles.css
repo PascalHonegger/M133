@@ -4,6 +4,9 @@ body    {
             color: rgb(50,50,50);
             background-color: rgb(235,235,211);
         }
+h1      {
+            border-bottom: 3px solid rgb(50,50,50) ;
+        }
 
 /*****   BASIC LAYOUT   *****/
 #container  {
@@ -76,7 +79,7 @@ body    {
                 }
 #menu           {
                     width: 170px;
-                    min-height: 660px;
+                    min-height: 650px;
                     background-color: rgb(175,175,175);
                     position: relative;
                     float: left;
@@ -96,11 +99,12 @@ body    {
             }
 #footer     {
                 position: relative;
-                width: 1096px;
+                width: 1076px;
                 height: 46px;
                 background-color: rgb(175,175,175);
                 border-radius: 10px;
                 border: 2px solid rgb(50,50,50);
+                padding: 0 10px 0 10px;
             }
 
 /*****   Login   *****/
@@ -110,10 +114,15 @@ body    {
                  background-color: darkcyan;
                  position: relative;
              }
-#logindiv h3    {
-                     margin: 0 0 0 0; !important;
+#h3             {
+                     margin: 0 !important;
                 }
 #logindiv input     {
                         width: 166px;
                         margin-top: 5px;
+                    }
+
+#registertable td   {
+                        height: 50px;
+                        border: 0;
                     }

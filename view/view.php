@@ -32,7 +32,7 @@
             } else {
                 if (isset($_SESSION['CurrentUser']))
                 {
-                    //TODO
+                    //include Money.php
                 } else {
                     include 'register.php';
                 }

@@ -1,6 +1,6 @@
 /*****   Overall Styles   *****/
 body    {
-            font-family: "Century Gothic";
+    font-family: "Century Gothic", "serif";
             color: rgb(50,50,50);
             background-color: rgb(235,235,211);
         }
@@ -115,7 +115,7 @@ h1      {
                  position: relative;
              }
 #h3             {
-                     margin: 0 !important;
+    margin: 0;
                 }
 #logindiv input     {
                         width: 166px;

@@ -25,6 +25,17 @@
                 <?php include 'login.php'; ?>
             </div>
             <div id="content">
+                <?php
+                if(isset($_GET['action']))
+                {
+                    if($_GET['action'] == "register")
+                    {
+                        include 'register.php';
+                    }
+                }
+
+                echo 'Hacckkkkuur::((!!!!!';
+                ?>
 
             </div>
         </div>

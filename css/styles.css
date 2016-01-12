@@ -75,22 +75,24 @@ body    {
                     min-height: 670px;
                 }
 #menu           {
-                    width: 173px;
-                    min-height: 670px;
+                    width: 170px;
+                    min-height: 660px;
                     background-color: rgb(175,175,175);
                     position: relative;
                     float: left;
                     border-radius: 10px;
                     border: rgb(50,50,50) solid 2px;
+                    padding: 10px 1.5px 10px 1.5px;
                 }
 #content    {
                 position: relative;
-                width: 904px;
-                min-height: 670px;
+                width: 884px;
+                height: 650px;
                 background-color: rgb(175,175,175);
                 border-radius: 10px;
                 float: right;
                 border: rgb(50,50,50) solid 2px;
+                padding: 10px;
             }
 #footer     {
                 position: relative;
@@ -102,10 +104,16 @@ body    {
             }
 
 /*****   Login   *****/
-#logindiv   {
-                width: 100%;
-                height: auto;
-                background-color: darkcyan;
-                margin-top: 10px;
-                position: relative;
-            }
+#logindiv  {
+                 width: 100%;
+                 height: auto;
+                 background-color: darkcyan;
+                 position: relative;
+             }
+#logindiv h3    {
+                     margin: 0 0 0 0; !important;
+                }
+#logindiv input     {
+                        width: 166px;
+                        margin-top: 5px;
+                    }

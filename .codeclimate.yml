@@ -33,3 +33,6 @@ exclude_paths:
 - dokumentation/UML/*
 - SQL/*
 - include/GoogleAuthenticator/*
+- include/GoogleAuthenticator/exemple/*
+- include/GoogleAuthenticator/PHPGansta/*
+- include/GoogleAuthenticator/tests/*

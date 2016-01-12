@@ -13,9 +13,9 @@
             </div>
             <div id="navigation">
                 <ul id="navlist">
-                    <li class="navbutton" >Budget</li>
-                    <li class="navbutton">Bank</li>
-                    <li class="navbutton">Login</li>
+                    <a href=""><li class="navbutton" >Budget</li></a>
+                    <a href=""><li class="navbutton">Bank</li></a>
+                        <a href=""><li class="navbutton">Login</li></a>
                 </ul>
             </div>
 
@@ -29,7 +29,7 @@
             </div>
         </div>
         <div id="footer">
-
+            <p>#Sinnloser Footer</p>
         </div>
 
     </div>

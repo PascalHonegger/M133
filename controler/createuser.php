@@ -16,7 +16,7 @@ $googleAuthenticatorCode = isset($_SESSION['GoogleAuthenticatorCode']) ? $_SESSI
 
 $checkResult = $ga->verifyCode($googleAuthenticatorSecret, $googleAuthenticatorCode, 2);    // 2 = 2*30sec clock tolerance
 
-if ($checkResult && preg_match("TODO", $selectedPassword)) {
+if ($checkResult && preg_match("^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{8,}", $selectedPassword)) {
     $db = $_SESSION['DBConnection'];
 
     $options = [

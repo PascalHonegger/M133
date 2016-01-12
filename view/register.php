@@ -1,12 +1,12 @@
 <h1>Registrieren</h1>
+<form action="../controler/createuser.php" method="post">
 <table id="registertable">
-    <form action="../controler/createuser.php" method="post">
     <tr>
         <td>
             <label for="SelectedUsername">Benutzername: </label>
         </td>
         <td>
-            <input id="SelectedUsername" name="SelectedUsername" ></br>
+            <input id="SelectedUsername" name="SelectedUsername">
         </td>
         <td></td>
         <td rowspan="4">
@@ -24,44 +24,43 @@
 
             ?>
         </td>
-
     </tr>
     <tr>
         <td>
             <label for="SelectedFirstName">Vorname: </label>
         </td>
         <td>
-            <input id="SelectedFirstName" name="SelectedFirstName" >
+            <input id="SelectedFirstName" name="SelectedFirstName" required="required">
         </td>
     </tr>
     <tr>
         <td>
-            <label for="SelectedFirstName">Nachname: </label>
+            <label for="SelectedLastName">Nachname: </label>
         </td>
         <td>
-            <input id="SelectedLastName" name="SelectedLastName" >
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <label for="SelectedFirstName">Passwort: </label>
-        </td>
-        <td>
-            <input id="SelectedPassword" name="SelectedPassword" >
+            <input id="SelectedLastName" name="SelectedLastName" required="required">
         </td>
     </tr>
     <tr>
         <td>
-            <label for="SelectedFirstName">Passwort wiederholen: </label>
+            <label for="SelectedPassword">Passwort: </label>
         </td>
         <td>
-            <input id="RepeatPassword" name="RepeatPassword" >
+            <input id="SelectedPassword" name="SelectedPassword" required="required">
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <label for="RepeatPassword">Passwort wiederholen: </label>
+        </td>
+        <td>
+            <input id="RepeatPassword" name="RepeatPassword" required="required">
         </td>
         <td>
             <label for="GoogleAuthenticatorCode">Generierter Code: </label>
         </td>
         <td>
-            <input id="GoogleAuthenticatorCode" name="GoogleAuthenticatorCode">
+            <input id="GoogleAuthenticatorCode" name="GoogleAuthenticatorCode" required="required">
         </td>
     </tr>
     <tr>

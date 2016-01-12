@@ -5,7 +5,6 @@ require_once '../include/db_connection.inc';
 
 $ga = new PHPGangsta_GoogleAuthenticator();
 
-$loginState = isset($_SESSION['LoginState']) ? $_SESSION['LoginState'] : 0;
 $selectedPassword = isset($_POST['SelectedPassword']) ? $_POST['SelectedPassword'] : null;
 $repeatPassword = isset($_POST['RepeatPassword']) ? $_POST['RepeatPassword'] : null;
 $selectedUsername = isset($_POST['SelectedUsername']) ? $_POST['SelectedUsername'] : null;
@@ -32,7 +31,7 @@ if ($checkResult && $correctPassword) {
 
     mysqli_query($db, $query);
 
-    echo 'Account was successfully created';
+    echo 'Account was successfully created! - <link href="../view/login.php" content="anmelden">';
 } else {
     echo 'Google Authentication oder das Passwort war falsch!';
 }

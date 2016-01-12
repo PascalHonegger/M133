@@ -44,4 +44,4 @@ exclude_paths:
 - include/Highcharts-4.2.1/js/*
 - include/Highcharts-4.2.1/js/adapters/*
 - include/Highcharts-4.2.1/js/modules/*
-- include/Highcharts-4.2.1/js/modules/themes/*
+- include/Highcharts-4.2.1/js/themes/*

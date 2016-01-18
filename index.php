@@ -1,7 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
     <head>
-        <link rel="stylesheet" href="../css/styles.css">
         <meta charset="UTF-8">
         <title>Paal Financial Services</title>
         <meta name="description" content="Paal Financial Services">
@@ -11,7 +10,7 @@
     <body>
         <script src="js/scripts.js"></script>
         <?php
-        include_once("view/view.php");
+            include_once(dirname(__FILE__).'/view/view.php');
         ?>
     </body>
 </html>

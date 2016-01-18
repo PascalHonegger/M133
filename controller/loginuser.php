@@ -1,7 +1,7 @@
 <?php
 
-include_once '../include/GoogleAuthenticator/PHPGangsta/GoogleAuthenticator.php';
-include_once '../include/db_connection.inc';
+require_once dirname(__FILE__).'/../include/GoogleAuthenticator/PHPGangsta/GoogleAuthenticator.php';
+require_once dirname(__FILE__).'/../include/db_connection.inc';
 
 $password = isset($_POST['LoginPassword']) ? $_POST['LoginPassword'] : null;
 $username = isset($_POST['LoginUsername']) ? $_POST['LoginUsername'] : null;
@@ -24,6 +24,7 @@ $passwordCorrect = password_verify($password, $user['password']);
 if ($checkResult && $passwordCorrect) {
     $_SESSION['CurrentUser'] = $user;
     echo "You are logged in!!!";
+    header('Location: '.dirname(__FILE__).'/../index.php');
 } else {
-    echo "SomeThingIsWrong.exe";
+    echo "SomethingIsWrong.exe";
 }

@@ -1,10 +1,10 @@
 <?php
 
-include_once '../include/GoogleAuthenticator/PHPGangsta/GoogleAuthenticator.php';
-include_once '../include/db_connection.inc';
+require_once dirname(__FILE__).'/../include/GoogleAuthenticator/PHPGangsta/GoogleAuthenticator.php';
+require_once dirname(__FILE__).'/../include/db_connection.inc';
 
 if (isset($_SESSION['CurrentUser'])) {
-    header('Location: ../index.php');
+    header('Location: '.dirname(__FILE__).'/../index.php');
 }
 
 $ga = new PHPGangsta_GoogleAuthenticator();
@@ -23,7 +23,7 @@ $checkResult = $ga->verifyCode($googleAuthenticatorSecret, $googleAuthenticatorC
 
 $correctPassword = preg_match('/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{8,}/', $selectedPassword);
 
-if ($checkResult && $correctPassword && $passwordsMatch) {
+if ($passwordsMatch && $checkResult && $correctPassword) {
     $db = $_SESSION['DBConnection'];
 
     $options = [
@@ -37,7 +37,7 @@ if ($checkResult && $correctPassword && $passwordsMatch) {
 
     mysqli_query($db, $query);
 
-    echo 'Account was successfully created! - <link href="../index.php" >zurück</link>';
+    echo 'Account was successfully created! - <a href="../index.php" >zurück</a>';
 } else {
-    header('Location: ../index.php?action=registrationfailed');
+    header('Location: '.dirname(__FILE__).'/../index.php?action=registrationfailed');
 }

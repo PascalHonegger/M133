@@ -1,5 +1,5 @@
 <h1>Registrieren</h1>
-<form action="../controler/registeruser.php" method="post">
+<form action="./controller/registeruser.php" method="post">
     <table id="registertable">
         <tr>
             <td>
@@ -12,7 +12,7 @@
             <td rowspan="4">
                 <?php
 
-                require_once 'include/GoogleAuthenticator/PHPGangsta/GoogleAuthenticator.php';
+                require_once dirname(__FILE__).'/../include/GoogleAuthenticator/PHPGangsta/GoogleAuthenticator.php';
 
                 $ga = new PHPGangsta_GoogleAuthenticator();
 

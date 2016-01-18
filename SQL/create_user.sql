@@ -1,6 +1,1 @@
-CREATE USER 'paal_admin'
-  IDENTIFIED BY 'paal_password';
-
-GRANT ALL PRIVILEGES ON *.* TO 'paal_admin'@'%'
-IDENTIFIED BY PASSWORD 'paal_password'
-WITH GRANT OPTION;
+GRANT ALL PRIVILEGES ON paal_db.* TO 'paal_admin'@'%' IDENTIFIED BY 'paal_password' WITH GRANT OPTION;

@@ -20,21 +20,21 @@
     </div>
     <div id="maincontent">
         <div id="menu">
-            <?php include 'login.php'; ?>
+            <?php include dirname(__FILE__).'/login.php'; ?>
         </div>
         <div id="content">
             <?php
             if (isset($_GET['action'])) {
                 if ($_GET['action'] == 'register' || $_GET['action'] == 'registrationfailed')
                 {
-                    include 'register.php';
+                    include dirname(__FILE__).'/register.php';
                 }
             } else {
                 if (isset($_SESSION['CurrentUser']))
                 {
-                    //include Money.php
+                    include dirname(__FILE__).'/../controller/showmoney.php';
                 } else {
-                    include 'register.php';
+                    include dirname(__FILE__).'/register.php';
                 }
             }
             ?>

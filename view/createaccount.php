@@ -15,7 +15,7 @@ include 'controller/variables.php';
 <form action="controller/createaccount.php" method="post">
     <label for="accountname">Name: </label ><input type="text" name="accountname">
     <label for="Accounttype">Name: </label >
-    <label for="limit">Name: </label ><input type="text" name="limit">
+    <label for="limit">Name: </label ><input type="text" name="limitghgh">
 </form>
 <?php
 }

@@ -1,9 +1,11 @@
 <div id="logindiv">
     <?php
+    include 'controller/variables.php';
+
         if(!isset($_SESSION['CurrentUser']))
         {   ?>
             <h3  class="h3" >Login</h3>
-            <form id="login" action="../controler/createuser.php" method="post">
+            <form id="login" action="controller/loginuser.php" method="post">
                 <label for="LoginUsername">Benutzername</label>
                 <input id="LoginUsername" name="LoginUsername" required="required">
 
@@ -19,7 +21,7 @@
         }
         else
         { ?>
-            <h3 class="h3"><?php mysqli_fetch_assoc($_SESSION['CurrentUser']['username']) ?></h3>
+            <h3 class="h3"><?php mysqli_fetch_assoc($user) ?></h3>
     <?php
         }
     ?>

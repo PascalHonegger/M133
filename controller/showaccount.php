@@ -1,7 +1,7 @@
 <?php
 
-require_once '../include/GoogleAuthenticator/PHPGangsta/GoogleAuthenticator.php';
-require_once '../include/db_connection.inc';
+require_once 'include/GoogleAuthenticator/PHPGangsta/GoogleAuthenticator.php';
+require_once 'include/db_connection.inc';
 require 'variables.php';
 
 if ($user == null) {

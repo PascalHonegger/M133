@@ -30,7 +30,7 @@ if ($error == 0) {
 
     $hashedPassword = password_hash($selectedPassword, PASSWORD_BCRYPT, $options);
 
-    $query = "INSERT INTO users(username, firstname, lastname, password, secret) VALUES('$selectedUsername', '$selectedFirstName', '$selectedLastName', '$hashedPassword', '$googleAuthenticatorSecret')";
+    $query = "INSERT INTO user(username, firstname, lastname, password, secret) VALUES('$selectedUsername', '$selectedFirstName', '$selectedLastName', '$hashedPassword', '$googleAuthenticatorSecret')";
 
     mysqli_query($db, $query);
 

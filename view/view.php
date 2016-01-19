@@ -35,18 +35,18 @@
         </div>
         <div id="content">
             <?php
-            require '../controller/variables.php';
+            require 'controller/variables.php';
 
             if ($action != null) {
                 if ($action == 'register') {
                     include 'register.php';
                 } elseif ($action == 'welcome') {
-                    include '../controller/showaccount.php';
+                    include 'controller/showaccount.php';
                 }
             }
             else {
                 if ($user != null) {
-                    include '../controller/showaccount.php';
+                    include 'controller/showaccount.php';
                 } else {
                     include 'register.php';
                 }

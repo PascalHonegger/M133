@@ -12,8 +12,8 @@
                 <label for="LoginPassword">Passwort</label>
                 <input id="LoginPassword" name="LoginPassword" type="password" required="required">
 
-                <label for="LoginGoogleAuthenticatorCode">Authenticator-Code</label>
-                <input id="LoginGoogleAuthenticatorCode" name="LoginGoogleAuthenticatorCode" required="required">
+                <label for="GoogleAuthenticatorCode">Authenticator-Code</label>
+                <input id="GoogleAuthenticatorCode" name="GoogleAuthenticatorCode" required="required">
 
                 <input type="submit">
             </form>
@@ -21,7 +21,9 @@
         }
         else
         { ?>
-            <h3 class="h3"><?php mysqli_fetch_assoc($user) ?></h3>
+            <h3 class="h3">Hallo <?php echo $user['username'] ?></h3>
+
+            <a href="view/logout.php">Logout</a>
     <?php
         }
     ?>

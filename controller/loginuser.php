@@ -23,6 +23,5 @@ if ($checkResult && $passwordCorrect) {
     echo "SomethingIsWrong.exe";
     var_dump($checkResult);
     var_dump($passwordCorrect);
-    var_dump($result);
     var_dump($user);
 }

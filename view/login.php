@@ -1,6 +1,6 @@
 <div id="logindiv">
     <h3>Login</h3>
-    <form id="login" action="./controller/loginuser.php" method="post">
+    <form id="login" action="controller/loginuser.php" method="post">
         <label for="LoginUsername">Benutzername</label>
         <input id="LoginUsername" name="LoginUsername" required="required">
 

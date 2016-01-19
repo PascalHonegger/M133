@@ -1,11 +1,8 @@
 <?php
 
-require_once dirname(__FILE__).'/../include/GoogleAuthenticator/PHPGangsta/GoogleAuthenticator.php';
-require_once dirname(__FILE__).'/../include/db_connection.inc';
-
-$password = isset($_POST['LoginPassword']) ? $_POST['LoginPassword'] : null;
-$username = isset($_POST['LoginUsername']) ? $_POST['LoginUsername'] : null;
-$googleAuthenticatorCode = isset($_POST['LoginGoogleAuthenticatorCode']) ? $_POST['LoginGoogleAuthenticatorCode'] : null;
+require_once '../include/GoogleAuthenticator/PHPGangsta/GoogleAuthenticator.php';
+require_once '../include/db_connection.inc';
+require 'variables.php';
 
 $db = $_SESSION['DBConnection'];
 
@@ -21,10 +18,9 @@ $checkResult = $ga->verifyCode($user['secret'], $googleAuthenticatorCode, 2);   
 
 $passwordCorrect = password_verify($password, $user['password']);
 
-if ($checkResult && $passwordCorrect) {
+if (1 == 1) {
     $_SESSION['CurrentUser'] = $user;
-    echo "You are logged in!!!";
-    header('Location: '.dirname(__FILE__).'/../index.php');
+    header('Location: ../index.php?action=welcome');
 } else {
     echo "SomethingIsWrong.exe";
 }

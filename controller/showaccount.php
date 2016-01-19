@@ -1,18 +1,15 @@
 <?php
 
-require_once dirname(__FILE__).'/../include/db_connection.inc';
+require_once '../include/GoogleAuthenticator/PHPGangsta/GoogleAuthenticator.php';
+require_once '../include/db_connection.inc';
+require 'variables.php';
 
-
-if(isset($_SESSION['CurrentUser'])){
+if ($user == null) {
     $user = $_SESSION['CurrentUser'];
-}
-else{
-    header('Location: '.dirname(__FILE__).'/../index.php');
+    header('Location: ../index.php');
 }
 
-$db = $_SESSION['DBConnection'];
-
-$query = 'SELECT * FROM accounts WHERE user_ID = '.$user['user_ID'];
+$query = 'SELECT * FROM account WHERE user_ID = ' . $user['user_ID'];
 
 $result = mysqli_query($db, $query);
 

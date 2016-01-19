@@ -1,29 +1,26 @@
 <?php
 
-require_once dirname(__FILE__).'/../include/GoogleAuthenticator/PHPGangsta/GoogleAuthenticator.php';
-require_once dirname(__FILE__).'/../include/db_connection.inc';
-
-if (isset($_SESSION['CurrentUser'])) {
-    header('Location: '.dirname(__FILE__).'/../index.php');
-}
+require_once '../include/GoogleAuthenticator/PHPGangsta/GoogleAuthenticator.php';
+require_once '../include/db_connection.inc';
+require 'variables.php';
 
 $ga = new PHPGangsta_GoogleAuthenticator();
 
-$selectedPassword = isset($_POST['SelectedPassword']) ? $_POST['SelectedPassword'] : null;
-$repeatPassword = isset($_POST['RepeatPassword']) ? $_POST['RepeatPassword'] : null;
-$selectedUsername = isset($_POST['SelectedUsername']) ? $_POST['SelectedUsername'] : null;
-$selectedLastName = isset($_POST['SelectedLastName']) ? $_POST['SelectedLastName'] : null;
-$selectedFirstName = isset($_POST['SelectedFirstName']) ? $_POST['SelectedFirstName'] : null;
-$googleAuthenticatorSecret = isset($_POST['GoogleAuthenticatorSecret']) ? $_POST['GoogleAuthenticatorSecret'] : null;
-$googleAuthenticatorCode = isset($_POST['GoogleAuthenticatorCode']) ? $_POST['GoogleAuthenticatorCode'] : null;
+$error = 0;
 
-$passwordsMatch = $repeatPassword == $selectedPassword;
+if ($repeatPassword != $selectedPassword) {
+    $error = 1;
+}
 
-$checkResult = $ga->verifyCode($googleAuthenticatorSecret, $googleAuthenticatorCode, 2);    // 2 = 2*30sec clock tolerance
+if (!$ga->verifyCode($googleAuthenticatorSecret, $googleAuthenticatorCode, 2)) {
+    $error = 2;
+}
 
-$correctPassword = preg_match('/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{8,}/', $selectedPassword);
+if (!preg_match('/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{8,}/', $selectedPassword)) {
+    $error = 3;
+}
 
-if ($passwordsMatch && $checkResult && $correctPassword) {
+if ($error == 0) {
     $db = $_SESSION['DBConnection'];
 
     $options = [
@@ -39,5 +36,5 @@ if ($passwordsMatch && $checkResult && $correctPassword) {
 
     echo 'Account was successfully created! - <a href="../index.php" >zurück</a>';
 } else {
-    header('Location: '.dirname(__FILE__).'/../index.php?action=registrationfailed');
+    header('Location: ../index.php?action=register&error=' . $error);
 }

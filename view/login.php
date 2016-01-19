@@ -1,10 +1,4 @@
 <div id="logindiv">
-<<<<<<< Updated upstream
-    <h3>Login</h3>
-    <form id="login" action="controller/loginuser.php" method="post">
-        <label for="LoginUsername">Benutzername</label>
-        <input id="LoginUsername" name="LoginUsername" required="required">
-=======
     <?php
         if(!isset($_SESSION['CurrentUser']))
         {   ?>
@@ -12,7 +6,6 @@
             <form id="login" action="../controler/createuser.php" method="post">
                 <label for="LoginUsername">Benutzername</label>
                 <input id="LoginUsername" name="LoginUsername" required="required">
->>>>>>> Stashed changes
 
                 <label for="LoginPassword">Passwort</label>
                 <input id="LoginPassword" name="LoginPassword" type="password" required="required">

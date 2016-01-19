@@ -44,7 +44,7 @@
                     include 'controller/showaccount.php';
                 }
                  elseif ($action == 'newacc') {
-                    include 'controller/createaccount.php';
+                    include 'view/createaccount.php';
                 }
 
             }

@@ -34,7 +34,20 @@ if ($error == 0) {
 
     mysqli_query($db, $query);
 
-    echo 'Account was successfully created! - <a href="../index.php" >zurück</a>';
+    $query = "SELECT * FROM user WHERE username = '$selectedUsername' LIMIT 1";
+
+    $result = mysqli_query($db, $query);
+
+    $user = mysqli_fetch_array($result);
+
+    if(mysqli_errno($db))
+    {
+        header('Location: ../index.php?action=register&error='.mysqli_errno($db));
+    }
+
+    $_SESSION['CurrentUser'] = $user;
+
+    header('Location: ../index.php?action=welcome');
 } else {
     header('Location: ../index.php?action=register&error=' . $error);
 }

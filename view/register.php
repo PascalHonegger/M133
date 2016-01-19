@@ -20,7 +20,7 @@
 
                 $qrCodeUrl = $ga->getQRCodeGoogleUrl('support@paal.ch', $secret);
 
-                echo '<image src="' . $qrCodeUrl . '"">';
+                echo '<image src="' . $qrCodeUrl . '">';
 
                 ?>
             </td>

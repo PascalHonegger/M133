@@ -15,6 +15,7 @@ $username = isset($_POST['LoginUsername']) ? $_POST['LoginUsername'] : null;
 $from = isset($_POST['from']) ? $_POST['from'] : null;
 $to = isset($_POST['to']) ? $_POST['to'] : null;
 $amount = isset($_POST['amount']) ? $_POST['amount'] : null;
+$type = isset($_POST['type']) ? $_POST['type'] : null;
 
 $action = isset($_GET['action']) ? $_GET['action'] : null;
 $error = isset($_GET['error']) ? $_GET['error'] : null;

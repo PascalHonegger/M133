@@ -6,7 +6,7 @@
  * Time: 14:25
  */
 include '../include/db_connection.inc';
-include 'Variables.php';
+include 'variables.php';
 
 
 if($user != null)
@@ -22,16 +22,18 @@ if($user != null)
     $result = mysqli_query($db, $query);
     if($result)
     {
-        echo '<p>Sie haben den Account erfolgriich erstellt</p>';
+        header('Location: index.php?action=welcome');
     }
     else
     {
-        echo '<p>FAILLL</p>';
+        $error = 50;
+        header('Location: index.php?action=welcome&error='.$error);
     }
 }
 else
 {
-    echo '<p>HACKUUTRESE!</p>';
+    $error = 60;
+    header('Location: index.php?action=welcome&error='.$error);
 }
 
 

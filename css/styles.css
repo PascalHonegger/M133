@@ -1,6 +1,6 @@
 /*****   Overall Styles   *****/
 body    {
-    font-family: "Century Gothic", "serif";
+            font-family: "Century Gothic";
             color: rgb(50,50,50);
             background-color: rgb(235,235,211);
         }
@@ -21,7 +21,7 @@ h1      {
 #header     {
                 width: 1100px;
                 height: 130px;
-                background-color: rgb(140,140,140);
+                background-color: rgb(0,114,114);
                 border-radius: 10px;
                 padding-top: 5px;
                 position: relative;
@@ -55,7 +55,7 @@ h1      {
                 }
 .navbutton  {
                 position: relative;
-                background-color: rgb(140,140,140);
+                background-color: rgb(0,114,114);
                 width: 175px;
                 height: 50%;
                 padding-top: 48px;
@@ -66,7 +66,7 @@ h1      {
 .navbutton:hover{
                     padding-top: 44px;
                     border-bottom: rgb(50,50,50) 3px solid;
-                    background-color: rgb(150,150,150);
+                    background-color: rgb(0,124,124);
                 }
 
 #maincontent    {
@@ -80,7 +80,7 @@ h1      {
 #menu           {
                     width: 170px;
                     min-height: 650px;
-                    background-color: rgb(175,175,175);
+                    background-color: rgb(195,195,195);
                     position: relative;
                     float: left;
                     border-radius: 10px;
@@ -91,7 +91,7 @@ h1      {
                 position: relative;
                 width: 884px;
                 height: 650px;
-                background-color: rgb(175,175,175);
+                background-color: rgb(195,195,195);
                 border-radius: 10px;
                 float: right;
                 border: rgb(50,50,50) solid 2px;
@@ -101,7 +101,7 @@ h1      {
                 position: relative;
                 width: 1076px;
                 height: 46px;
-                background-color: rgb(175,175,175);
+                background-color: rgb(0,114,114);
                 border-radius: 10px;
                 border: 2px solid rgb(50,50,50);
                 padding: 0 10px 0 10px;
@@ -111,10 +111,11 @@ h1      {
 #logindiv  {
                  width: 100%;
                  height: auto;
+                 background-color: darkcyan;
                  position: relative;
              }
-#h3             {
-    margin: 0;
+.h3             {
+                     margin: 0 ;
                 }
 #logindiv input     {
                         width: 166px;
@@ -124,4 +125,7 @@ h1      {
 #registertable td   {
                         height: 50px;
                         border: 0;
+                    }
+.contenttitle       {
+                        margin:0 0 25px 0;
                     }

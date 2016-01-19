@@ -43,21 +43,20 @@
                 } elseif ($action == 'welcome') {
                     include '../controller/showaccount.php';
                 }
-            } else {
+            }
+            else {
                 if ($user != null) {
                     include '../controller/showaccount.php';
                 } else {
                     include 'register.php';
                 }
             }
-            ?>
-
+                ?>
+            </div>
         </div>
-    </div>
-    <div id="footer">
-        <p>#Sinnloser Footer</p>
-    </div>
-
+        <div id="footer">
+            <p>©PAAL FINANCIAL SERVICES</p>
+        </div>
 </div>
 </body>
 </html>

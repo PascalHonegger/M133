@@ -42,13 +42,11 @@
                     include 'register.php';
                 } elseif ($action == 'welcome') {
                     include 'controller/showaccount.php';
+                    include 'view/createaccount.php';
                 } elseif ($action == 'finances') {
                     include 'controller/finances.php';
                 } elseif ($action == 'givemoney') {
-                    include 'controller/givemoney.php';
-                }
-                 elseif ($action == 'newacc') {
-                    include 'view/createaccount.php';
+                    include 'view/givemoney.php';
                 }
 
             }

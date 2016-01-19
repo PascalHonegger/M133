@@ -1,14 +1,14 @@
 <?php
 
 require_once 'include/db_connection.inc';
-require 'variables.php';
+require 'controller/variables.php';
 
 $query = 'SELECT * FROM account WHERE user_ID = ' . $user['user_ID'];
 
 $result = mysqli_query($db, $query);
 
 ?>
-<form action="../controller/givemoney.php">
+    <form action="controller/givemoney.php" method="post">
     <label for="from">Von</label>
     <select id="from" name="from">
         <?php
@@ -30,3 +30,9 @@ $result = mysqli_query($db, $query);
     <input type="submit">
 
 </form>
+
+<?php
+
+if (isset($_GET['error'])) {
+    echo $_GET['error'];
+}

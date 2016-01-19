@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.3.11
+-- version 4.5.0.2
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 18. Jan 2016 um 19:26
--- Server-Version: 5.6.24
--- PHP-Version: 5.6.8
+-- Erstellungszeit: 19. Jan 2016 um 14:35
+-- Server-Version: 10.0.17-MariaDB
+-- PHP-Version: 5.6.14
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -14,7 +14,7 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Datenbank: `paal_db`
@@ -28,12 +28,13 @@ USE `paal_db`;
 -- Tabellenstruktur für Tabelle `account`
 --
 
-CREATE TABLE IF NOT EXISTS `account` (
-  `acc_ID` int(11) NOT NULL,
-  `balance` decimal(13,2) NOT NULL,
-  `payment_limit` decimal(13,2) NOT NULL DEFAULT '2000.00',
-  `type` enum('Sparkonto','Privatkonto','Jugendkonto','Säule 3','') NOT NULL,
-  `user_ID` int(11) NOT NULL
+CREATE TABLE `account` (
+  `acc_ID`        int(11)                                                    NOT NULL,
+  `balance`       decimal(13,2)                                              NOT NULL,
+  `payment_limit` decimal(13,2)                                              NOT NULL DEFAULT '2000.00',
+  `type`          enum('Sparkonto','Privatkonto','Jugendkonto','Säule 3','') NOT NULL,
+  `user_ID`       INT(11)                                                    NOT NULL,
+  `acc_name`      VARCHAR(30)                                                NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -42,7 +43,7 @@ CREATE TABLE IF NOT EXISTS `account` (
 -- Tabellenstruktur für Tabelle `transaction`
 --
 
-CREATE TABLE IF NOT EXISTS `transaction` (
+CREATE TABLE `transaction` (
   `trans_ID` int(11) NOT NULL,
   `trans_ammount` decimal(13,2) NOT NULL,
   `trans_sender` int(11) NOT NULL,
@@ -56,7 +57,7 @@ CREATE TABLE IF NOT EXISTS `transaction` (
 -- Tabellenstruktur für Tabelle `user`
 --
 
-CREATE TABLE IF NOT EXISTS `user` (
+CREATE TABLE `user` (
   `user_ID` int(11) NOT NULL,
   `username` varchar(40) NOT NULL,
   `firstname` varchar(40) NOT NULL,
@@ -66,6 +67,14 @@ CREATE TABLE IF NOT EXISTS `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
+-- Daten für Tabelle `user`
+--
+
+INSERT INTO `user` (`user_ID`, `username`, `firstname`, `lastname`, `password`, `secret`) VALUES
+  (1, 'Pudcul', 'Pudcil', 'Qwer!1234', '$2y$11$UVFLUUJDWkVGREpNS1lWQu9LQSGV3lAN2NeqPgVj3ZAgx2QY62d5q',
+   'QQKQBCZEFDJMKYVC');
+
+--
 -- Indizes der exportierten Tabellen
 --
 
@@ -73,19 +82,23 @@ CREATE TABLE IF NOT EXISTS `user` (
 -- Indizes für die Tabelle `account`
 --
 ALTER TABLE `account`
-  ADD PRIMARY KEY (`acc_ID`), ADD KEY `user_ID` (`user_ID`);
+ADD PRIMARY KEY (`acc_ID`),
+ADD KEY `user_ID` (`user_ID`);
 
 --
 -- Indizes für die Tabelle `transaction`
 --
 ALTER TABLE `transaction`
-  ADD PRIMARY KEY (`trans_ID`), ADD KEY `trans_sender` (`trans_sender`), ADD KEY `trans_reciever` (`trans_reciever`);
+ADD PRIMARY KEY (`trans_ID`),
+ADD KEY `trans_sender` (`trans_sender`),
+ADD KEY `trans_reciever` (`trans_reciever`);
 
 --
 -- Indizes für die Tabelle `user`
 --
 ALTER TABLE `user`
-  ADD PRIMARY KEY (`user_ID`), ADD UNIQUE KEY `username` (`username`);
+ADD PRIMARY KEY (`user_ID`),
+ADD UNIQUE KEY `username` (`username`);
 
 --
 -- AUTO_INCREMENT für exportierte Tabellen
@@ -105,7 +118,7 @@ ALTER TABLE `transaction`
 -- AUTO_INCREMENT für Tabelle `user`
 --
 ALTER TABLE `user`
-  MODIFY `user_ID` int(11) NOT NULL AUTO_INCREMENT;
+MODIFY `user_ID` INT(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT = 2;
 --
 -- Constraints der exportierten Tabellen
 --

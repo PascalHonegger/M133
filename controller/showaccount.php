@@ -18,5 +18,5 @@ while($row = mysqli_fetch_array($result))
     $balance = $result['balance'];
     $type = $result['type'];
 
-    include dirname(__FILE__)."/../view/showaccount.php?balance=$balance&type=$type";
+    include "view/showaccount.php?balance=$balance&type=$type";
 }

@@ -40,10 +40,12 @@
             if ($action != null) {
                 if ($action == 'register') {
                     include 'register.php';
-                } elseif ($action == 'welcome') {
+                } elseif ($action == 'welcome' && $user != null) {
                     include 'controller/showaccount.php';
                     include 'view/createaccount.php';
-                } elseif ($action == 'finances') {
+                } elseif ($action == 'welcome') {
+                    include 'register.php';
+                }   elseif ($action == 'finances') {
                     include 'controller/finances.php';
                 } elseif ($action == 'givemoney') {
                     include 'view/givemoney.php';

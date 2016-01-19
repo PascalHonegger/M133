@@ -43,6 +43,10 @@
                 } elseif ($action == 'welcome') {
                     include 'controller/showaccount.php';
                 }
+                 elseif ($action == 'newacc') {
+                    include 'controller/createaccount.php';
+                }
+
             }
             else {
                 if ($user != null) {

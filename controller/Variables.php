@@ -12,6 +12,9 @@ $googleAuthenticatorSecret = isset($_POST['GoogleAuthenticatorSecret']) ? $_POST
 $googleAuthenticatorCode = isset($_POST['GoogleAuthenticatorCode']) ? $_POST['GoogleAuthenticatorCode'] : null;
 $password = isset($_POST['LoginPassword']) ? $_POST['LoginPassword'] : null;
 $username = isset($_POST['LoginUsername']) ? $_POST['LoginUsername'] : null;
+$from = isset($_POST['from']) ? $_POST['from'] : null;
+$to = isset($_POST['to']) ? $_POST['to'] : null;
+$amount = isset($_POST['amount']) ? $_POST['amount'] : null;
 
 $action = isset($_GET['action']) ? $_GET['action'] : null;
 $error = isset($_GET['error']) ? $_GET['error'] : null;

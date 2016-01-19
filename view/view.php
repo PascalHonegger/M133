@@ -16,13 +16,13 @@
         </div>
         <div id="navigation">
             <ul id="navlist">
-                <a href="">
+                <a href="?action=welcome">
                     <li class="navbutton">Konten</li>
                 </a>
-                <a href="">
+                <a href="?action=finances">
                     <li class="navbutton">Finanzplanung</li>
                 </a>
-                <a href="">
+                <a href="?action=givemoney">
                     <li class="navbutton">Account</li>
                 </a>
             </ul>
@@ -42,6 +42,10 @@
                     include 'register.php';
                 } elseif ($action == 'welcome') {
                     include 'controller/showaccount.php';
+                } elseif ($action == 'finances') {
+                    include 'controller/finances.php';
+                } elseif ($action == 'givemoney') {
+                    include 'controller/givemoney.php';
                 }
                  elseif ($action == 'newacc') {
                     include 'view/createaccount.php';

@@ -34,6 +34,8 @@ while($row = mysqli_fetch_assoc($result))
     $spentThisMonth += $row['trans_amount'];
 }
 
+$spentThisMonth += $amount;
+
 if($spentThisMonth >= $limit)
 {
     $error = 43;

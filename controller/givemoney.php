@@ -3,23 +3,39 @@
 require_once '../include/db_connection.inc';
 require 'variables.php';
 
+// User angemeldet
 if($user == null)
 {
     $error = 42;
     header('Location: ../index.php?action=register&error=' . $error);
 }
 
+// Positiver Betrag
 if($amount <= 0)
 {
     $error = 26;
     header('Location: ../index.php?action=register&error=' . $error);
 }
 
-$query = 'SELECT payment_limit FROM account WHERE acc_ID = ' . $from;
+// Konto des senders wählen
+
+$query = 'SELECT payment_limit, user_ID FROM account WHERE acc_ID = ' . $from;
 
 $result = mysqli_query($db, $query);
 
 $row = mysqli_fetch_assoc($result);
+
+// Konto gehört angemeldetem User
+
+$accountOwnerID = $row['user_ID'];
+
+if($accountOwnerID != $user['user_ID'])
+{
+    $error = 52;
+    header('Location: ../index.php?action=givemoney&error=' . $error);
+}
+
+// Kontolimit ausrechnen
 
 $limit = $row['payment_limit'];
 
@@ -36,6 +52,7 @@ while($row = mysqli_fetch_assoc($result))
 
 $spentThisMonth += $amount;
 
+// Kontolimit überschritten
 if($spentThisMonth >= $limit)
 {
     $error = 43;

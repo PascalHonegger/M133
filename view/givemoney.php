@@ -51,6 +51,6 @@ $result = mysqli_query($db, $query);
 
 <?php
 
-if ($error != null) {
+if ($error != 0) {
     echo '<p style="color: red;">Fehler bei der Überweisung (Fehlercode ' .$error. ')!</p>';
 }

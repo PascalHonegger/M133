@@ -1,3 +1,101 @@
+<?php
+require_once '../include/db_connection.inc';
+require 'variables.php';
+
+$account = $_POST['account'];
+
+$query = "select count(trans_ID) as count from transaction WHERE trans_sender = $account and trans_type = 'Miete'";
+
+
+$result = mysqli_query($db, $query);
+
+$miete = mysqli_fetch_array($result);
+
+$miete = $miete['count'];
+
+
+$query = "select count(trans_ID) as count from transaction WHERE trans_sender = $account and trans_type = 'Haushalt'";
+
+$result = mysqli_query($db, $query);
+
+$haushalt = mysqli_fetch_array($result);
+
+$haushalt = $haushalt['count'];
+
+
+$query = "select count(trans_ID) as count from transaction WHERE trans_sender = $account and trans_type = 'Freizeit'";
+
+$result = mysqli_query($db, $query);
+
+$freizeit = mysqli_fetch_array($result);
+
+$freizeit = $freizeit['count'];
+
+
+$query = "select count(trans_ID) as count from transaction WHERE trans_sender = $account and trans_type = 'Online'";
+
+$result = mysqli_query($db, $query);
+
+$online = mysqli_fetch_array($result);
+
+$online = $online['count'];
+
+
+$query = "select count(trans_ID) as count from transaction WHERE trans_sender = $account and trans_type = 'Einkaufen'";
+
+$result = mysqli_query($db, $query);
+
+$einkaufen = mysqli_fetch_array($result);
+
+$einkaufen = $einkaufen['count'];
+
+
+$query = "select count(trans_ID) as count from transaction WHERE trans_sender = $account and trans_type = 'Reisen'";
+
+$result = mysqli_query($db, $query);
+
+$reisen = mysqli_fetch_array($result);
+
+$reisen = $reisen['count'];
+
+
+$query = "select count(trans_ID) as count from transaction WHERE trans_sender = $account and trans_type = 'Gesundheit'";
+
+$result = mysqli_query($db, $query);
+
+$gesundheit = mysqli_fetch_array($result);
+
+$gesundheit = $gesundheit['count'];
+
+
+$query = "select count(trans_ID) as count from transaction WHERE trans_sender = $account and trans_type = 'Steuern & Versicherungen'";
+
+$result = mysqli_query($db, $query);
+
+$steuern = mysqli_fetch_array($result);
+
+$steuern = $steuern['count'];
+
+
+$query = "select count(trans_ID) as count from transaction WHERE trans_sender = $account and trans_type = 'Ferien'";
+
+$result = mysqli_query($db, $query);
+
+$ferien = mysqli_fetch_array($result);
+
+$ferien = $ferien['count'];
+
+
+$query = "select count(trans_ID) as count from transaction WHERE trans_sender = $account and trans_type = 'Diverses'";
+
+$result = mysqli_query($db, $query);
+
+$diverses = mysqli_fetch_array($result);
+
+$diverses = $diverses['count'];
+
+?>
+
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -15,13 +113,13 @@
                     type: 'bar'
                 },
                 title: {
-                    text: 'Historic World Population by Region'
+                    text: 'Diagram'
                 },
                 subtitle: {
                     text: 'Source: <a href="https://en.wikipedia.org/wiki/World_population">Wikipedia.org</a>'
                 },
                 xAxis: {
-                    categories: ['Africa', 'America', 'Asia', 'Europe', 'Oceania'],
+                    categories: ['Miete', 'Haushalt', 'Freizeit', 'Online', 'Einkaufen','Reisen','Gesundheit','Steuern & Versicherungen','Ferien','Diverses'],
                     title: {
                         text: null
                     }
@@ -29,7 +127,7 @@
                 yAxis: {
                     min: 0,
                     title: {
-                        text: 'Population (millions)',
+                        text: 'Transaktionen',
                         align: 'high'
                     },
                     labels: {
@@ -61,14 +159,8 @@
                     enabled: false
                 },
                 series: [{
-                    name: 'Year 1800',
-                    data: [107, 31, 635, 203, 2]
-                }, {
-                    name: 'Year 1900',
-                    data: [133, 156, 947, 408, 6]
-                }, {
-                    name: 'Year 2012',
-                    data: [1052, 954, 4250, 740, 38]
+                    name: 'Anazhl Transaktionen',
+                    data: [<?php echo "$miete, $haushalt, $freizeit, $online, $einkaufen, $reisen, $gesundheit, $steuern, $ferien, $diverses";  ?>]
                 }]
             });
         });

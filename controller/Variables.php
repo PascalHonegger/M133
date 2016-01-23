@@ -16,6 +16,10 @@ $from = isset($_POST['from']) ? $_POST['from'] : null;
 $to = isset($_POST['to']) ? $_POST['to'] : null;
 $amount = isset($_POST['amount']) ? $_POST['amount'] : null;
 $type = isset($_POST['type']) ? $_POST['type'] : null;
+$accountname = isset($_POST['accountname']) ? $_POST['accountname'] : null;
+$accounttype = isset($_POST['accounttype']) ? $_POST['accounttype'] : null;
+$limit = isset($_POST['limit']) ? $_POST['limit'] : null;
+
 if(isset($_POST['account']))
 {
     $account = $_POST['account'];

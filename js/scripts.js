@@ -32,7 +32,7 @@ function validateRegisterForm() {
     //    everythingWentGood = false;
     //}
 
-    if(firstPassword.value != secondPassword.value)
+    if(firstPassword.value !== secondPassword.value)
     {
         secondPassword.style.border = '2px solid red';
         whatWentWrongText = whatWentWrongText.concat('Passwörter stimmen nicht überein</br>');

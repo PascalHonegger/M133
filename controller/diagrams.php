@@ -18,7 +18,7 @@
             text: 'Source: <a href="https://en.wikipedia.org/wiki/World_population">Wikipedia.org</a>'
         },
         xAxis: {
-            categories: ['Africa', 'America', 'Asia', 'Europe', 'Oceania'],
+            categories: ['Miete', 'Haushalt', 'Freizeit', 'Online', 'Einkaufen','Reisen','Gesundheit','Steuern & Versicherungen','Ferien','Diverses'],
             title: {
                 text: null
             }
@@ -58,14 +58,8 @@
             enabled: false
         },
         series: [{
-            name: 'Year 1800',
-            data: [107, 31, 635, 203, 2]
-        }, {
-            name: 'Year 1900',
-            data: [133, 156, 947, 408, 6]
-        }, {
-            name: 'Year 2012',
-            data: [1052, 954, 4250, 740, 38]
+            name: 'Anazhl Transaktionen',
+            data: [ 1,2 ,3 ,4 ,5 ,6 ,7 ,8 ,9 ,10 ,11 ]
         }]
     });
 });

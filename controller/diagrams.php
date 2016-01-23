@@ -151,7 +151,7 @@ $diverses = $diverses['count'];
         },
         series: [{
             name: 'Anazhl Transaktionen',
-            data: [<?php echo "$miete, $haushalt, $freizeit, $online, $einkaufen, $reisen, $gesundheit, $steuern, $ferien, $diverses";  ?>]
+            data: [1,2,3,4,5,6,7,8,9,10]
         }]
     });
 });

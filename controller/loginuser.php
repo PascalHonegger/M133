@@ -4,9 +4,15 @@ require_once '../include/GoogleAuthenticator/PHPGangsta/GoogleAuthenticator.php'
 require_once '../include/db_connection.inc';
 require 'variables.php';
 
-$query = "SELECT * FROM user WHERE username = '$username' LIMIT 1";
+$query = 'SELECT * FROM user WHERE username = ? LIMIT 1';
 
-$result = mysqli_query($db, $query);
+$stmt = mysqli_prepare($db, $query);
+
+$stmt->bind_param('s',$username);
+
+$stmt->execute();
+
+$result = $stmt->get_result();
 
 $user = mysqli_fetch_array($result);
 
@@ -20,8 +26,6 @@ if ($checkResult && $passwordCorrect) {
     $_SESSION['CurrentUser'] = $user;
     header('Location: ../index.php?action=welcome');
 } else {
-    echo "SomethingIsWrong.exe";
-    var_dump($checkResult);
-    var_dump($passwordCorrect);
-    var_dump($user);
+    $error = 0;
+    header('Location: ../index.php?action=welcome&error='.$error);
 }

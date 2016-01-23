@@ -4,7 +4,6 @@ require 'variables.php';
 
 $query = "select count(trans_ID) as count from transaction WHERE trans_sender = $account and trans_type = 'Miete'";
 
-
 $result = mysqli_query($db, $query);
 
 $miete = mysqli_fetch_array($result);

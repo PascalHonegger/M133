@@ -5,15 +5,20 @@ require 'variables.php';
 
 if($user != null)
 {
-    $accountname = $_POST['accountname'];
-    $accounttype = $_POST['accounttype'];
-    $limit = $_POST['limit'];
     $userid = $user['user_ID'];
 
-    $query = "insert into account(balance,payment_limit,type,user_ID,acc_name) values (0,$limit,'$accounttype','$userid','$accountname');";
-    var_dump($query);
+    $query = 'insert into account(balance,payment_limit,type,user_ID,acc_name) values (0,?,?,?,?);';
 
-    $result = mysqli_query($db, $query);
+    $stmt = mysqli_prepare($db, $query);
+
+    $stmt->bind_param('dsis',$limit, $accounttype, $userid, $accountname);
+
+    $stmt->execute();
+
+    $result = $stmt->get_result();
+
+    $stmt->close();
+
     if($result)
     {
         header('Location: ../index.php?action=welcome');

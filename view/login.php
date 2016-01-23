@@ -26,6 +26,10 @@
             <a href="view/logout.php">Logout</a>
     <?php
         }
+
+    if ($error != null) {
+        echo '<p style="color: red;">Fehler bei der Anmeldung (Fehlercode ' .$error. ')!</p>';
+    }
     ?>
 
 

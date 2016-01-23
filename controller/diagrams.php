@@ -105,7 +105,7 @@ $diverses = $diverses['count'];
             type: 'bar'
         },
         title: {
-            text: 'Historic World Population by Region'
+            text: 'Diagram'
         },
         subtitle: {
             text: 'Source: <a href="https://en.wikipedia.org/wiki/World_population">Wikipedia.org</a>'
@@ -119,7 +119,7 @@ $diverses = $diverses['count'];
         yAxis: {
             min: 0,
             title: {
-                text: 'Population (millions)',
+                text: 'Transaktionen',
                 align: 'high'
             },
             labels: {
@@ -152,7 +152,7 @@ $diverses = $diverses['count'];
         },
         series: [{
             name: 'Anazhl Transaktionen',
-            data: [<?php echo "$miete, $haushalt, $freizeit, $online, $einkaufen, $reisen, $gesundheit, $steuern, $ferien, $diverses"  ?>]
+            data: [<?php echo "$miete, $haushalt, $freizeit, $online, $einkaufen, $reisen, $gesundheit, $steuern, $ferien, $diverses";  ?>]
         }]
     });
 });

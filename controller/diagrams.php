@@ -95,7 +95,6 @@ $diverses = mysqli_fetch_array($result);
 $diverses = $diverses['count'];
 
 ?>
-	<head>
 
 
 		<script type="text/javascript">
@@ -157,11 +156,8 @@ $diverses = $diverses['count'];
     });
 });
 		</script>
-	</head>
-	<body>
 <script src="https://code.highcharts.com/highcharts.js"></script>
 <script src="https://code.highcharts.com/modules/exporting.js"></script>
 
 <div id="container" style="min-width: 310px; max-width: 800px; height: 400px; margin: 0 auto"></div>
 
-	</body>

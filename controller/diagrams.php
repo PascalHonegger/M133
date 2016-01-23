@@ -1,5 +1,97 @@
 <?php
+require_once '../include/db_connection.inc';
+require 'variables.php';
 
+$account = $_POST['account'];
+
+$query = 'select count(id) as count from transaction WHERE trans_sender = $account and trans_type = \'Miete\'';
+
+$result = mysqli_query($db, $query);
+
+$miete = mysqli_fetch_array($result);
+
+$miete = $miete['count'];
+
+
+$query = 'select count(id) as count from transaction WHERE trans_sender = $account and trans_type = \'Haushalt\'';
+
+$result = mysqli_query($db, $query);
+
+$haushalt = mysqli_fetch_array($result);
+
+$haushalt = $haushalt['count'];
+
+
+$query = 'select count(id) as count from transaction WHERE trans_sender = $account and trans_type = \'Freizeit\'';
+
+$result = mysqli_query($db, $query);
+
+$freizeit = mysqli_fetch_array($result);
+
+$freizeit = $freizeit['count'];
+
+
+$query = 'select count(id) as count from transaction WHERE trans_sender = $account and trans_type = \'Online\'';
+
+$result = mysqli_query($db, $query);
+
+$online = mysqli_fetch_array($result);
+
+$online = $online['count'];
+
+
+$query = 'select count(id) as count from transaction WHERE trans_sender = $account and trans_type = \'Einkaufen\'';
+
+$result = mysqli_query($db, $query);
+
+$einkaufen = mysqli_fetch_array($result);
+
+$einkaufen = $einkaufen['count'];
+
+
+$query = 'select count(id) as count from transaction WHERE trans_sender = $account and trans_type = \'Reisen\'';
+
+$result = mysqli_query($db, $query);
+
+$reisen = mysqli_fetch_array($result);
+
+$reisen = $reisen['count'];
+
+
+$query = 'select count(id) as count from transaction WHERE trans_sender = $account and trans_type = \'Gesundheit\'';
+
+$result = mysqli_query($db, $query);
+
+$gesundheit = mysqli_fetch_array($result);
+
+$gesundheit = $gesundheit['count'];
+
+
+$query = 'select count(id) as count from transaction WHERE trans_sender = $account and trans_type = \'Steuern & Versicherungen\'';
+
+$result = mysqli_query($db, $query);
+
+$steuern = mysqli_fetch_array($result);
+
+$steuern = $steuern['count'];
+
+
+$query = 'select count(id) as count from transaction WHERE trans_sender = $account and trans_type = \'Ferien\'';
+
+$result = mysqli_query($db, $query);
+
+$ferien = mysqli_fetch_array($result);
+
+$ferien = $ferien['count'];
+
+
+$query = 'select count(id) as count from transaction WHERE trans_sender = $account and trans_type = \'Diverses\'';
+
+$result = mysqli_query($db, $query);
+
+$diverses = mysqli_fetch_array($result);
+
+$diverses = $diverses['count'];
 
 ?>
 	<head>
@@ -59,7 +151,7 @@
         },
         series: [{
             name: 'Anazhl Transaktionen',
-            data: [ 1,2 ,3 ,4 ,5 ,6 ,7 ,8 ,9 ,10 ,11 ]
+            data: [<?php echo "$miete, $haushalt, $freizeit, $online, $einkaufen, $reisen, $gesundheit, $steuern, $ferien, $diverses"  ?>]
         }]
     });
 });

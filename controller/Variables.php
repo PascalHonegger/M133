@@ -22,3 +22,5 @@ $error = isset($_GET['error']) ? $_GET['error'] : null;
 
 $user = isset($_SESSION['CurrentUser']) ? $_SESSION['CurrentUser'] : null;
 $db = isset($_SESSION['DBConnection']) ? $_SESSION['DBConnection'] : null;
+
+$passwordRegularExpression = '/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@!%*?&_-])[A-Za-z\d$@!%*?&_-]{8,}/';

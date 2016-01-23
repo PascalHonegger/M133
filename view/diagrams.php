@@ -12,7 +12,7 @@ $query = 'SELECT * FROM account WHERE user_ID = ' . $user['user_ID'];
 $result = mysqli_query($db, $query);
 
 ?>
-<form action="controller/diagrams.php" method="post">
+<form action="" method="post">
     <label for="account">Account: </label>
     <select id="account" name="account">
         <?php
@@ -26,5 +26,11 @@ $result = mysqli_query($db, $query);
         }
         ?>
     </select>
-
     <input type="submit">
+
+    <?php
+        if($account != null)
+        {
+            echo '<iframe id="auswertungDiagramme" src="controller/diagrams.php?account='.$account.'"></iframe>';
+        }
+    ?>

@@ -6,9 +6,8 @@
     <meta name="description" content="Paal Financial Services">
     <meta name="author" content="PaAl">
     <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="include/chosen.css">
-    <script src="js/scripts.js"></script>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script src="js/scripts.js"></script>
     <style type="text/css">
         ${demo.css}
     </style>

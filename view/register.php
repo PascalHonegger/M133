@@ -83,9 +83,10 @@
 <div id="errorBox">
 <p id="javscriptErrors"></p>
 <?php
-    if (isset($_GET['error'])) {
-        echo '<p>Registrierung fehlgeschlagen (Fehlercode ' . $_GET['error'] . ')! Bitte versuchen Sie es erneut!</p>';
-    }
+
+if ($error != 0) {
+    echo '<p>Registrierung fehlgeschlagen (Fehlercode ' . $_GET['error'] . ')! Bitte versuchen Sie es erneut!</p>';
+}
 ?>
 
 </div>

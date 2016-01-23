@@ -2,8 +2,6 @@
 require_once '../include/db_connection.inc';
 require 'variables.php';
 
-$account = $_POST['account'];
-
 $query = "select count(trans_ID) as count from transaction WHERE trans_sender = $account and trans_type = 'Miete'";
 
 

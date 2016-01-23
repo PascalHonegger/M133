@@ -13,9 +13,9 @@ $query = 'SELECT * FROM account WHERE user_ID = ' . $user['user_ID'];
 $result = mysqli_query($db, $query);
 
 ?>
-    <form action="controller/givemoney.php" method="post">
+    <form action="controller/givemoney.php" method="post" id="chosenForm">
     <label for="from">Von</label>
-    <select id="from" name="from" class="chosen-select" data-placeholder="Wähle ein Konto">
+    <select id="from" name="from">
         <?php
         while ($row = mysqli_fetch_array($result)) {
             $balance = $row['balance'];

@@ -156,8 +156,8 @@ $diverses = $diverses['count'];
     });
 });
 		</script>
-<script src="../diagrams/highcharts.js"></script>
-<script src="../diagrams/modules/exporting.js"></script>
+<script src="../highcharts/js/highcharts.js"></script>
+<script src="../highcharts/js/modules/exporting.js"></script>
 
 <div id="container" style="min-width: 310px; max-width: 800px; height: 400px; margin: 0 auto"></div>
 

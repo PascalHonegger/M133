@@ -52,7 +52,7 @@
                 } elseif ($action == 'welcome') {
                     include 'register.php';
                 }   elseif ($action == 'finances') {
-                    include 'controller/finances.php';
+                    include 'controller/diagrams.php';
                 } elseif ($action == 'givemoney') {
                     include 'view/givemoney.php';
                 }

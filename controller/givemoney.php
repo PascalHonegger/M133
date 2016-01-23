@@ -82,7 +82,6 @@ else{
         $error  = 93;
     }
 
-
     header('Location: ../index.php?action=givemoney&error=' . $error);
 }
 

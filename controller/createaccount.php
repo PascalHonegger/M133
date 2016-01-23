@@ -1,12 +1,6 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Alain
- * Date: 19.01.2016
- * Time: 14:25
- */
-include '../include/db_connection.inc';
-include 'variables.php';
+require_once '../include/db_connection.inc';
+require 'variables.php';
 
 
 if($user != null)
@@ -22,18 +16,18 @@ if($user != null)
     $result = mysqli_query($db, $query);
     if($result)
     {
-        header('Location: index.php?action=welcome');
+        header('Location: ../index.php?action=welcome');
     }
     else
     {
         $error = 50;
-        header('Location: index.php?action=welcome&error='.$error);
+        header('Location: ../index.php?action=welcome&error='.$error);
     }
 }
 else
 {
     $error = 60;
-    header('Location: index.php?action=welcome&error='.$error);
+    header('Location: ../index.php?action=welcome&error='.$error);
 }
 
 

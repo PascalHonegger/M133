@@ -15,7 +15,7 @@ $result = mysqli_query($db, $query);
 ?>
     <form action="controller/givemoney.php" method="post">
     <label for="from">Von</label>
-    <select id="from" name="from">
+    <select id="from" name="from" class="chosen-select" data-placeholder="Wähle ein Konto">
         <?php
         while ($row = mysqli_fetch_array($result)) {
             $balance = $row['balance'];

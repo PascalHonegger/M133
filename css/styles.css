@@ -1,12 +1,24 @@
 /*****   Overall Styles   *****/
 body    {
-            font-family: "Century Gothic";
+    font-family: "Century Gothic", sans-serif;
             color: rgb(50,50,50);
             background-color: rgb(235,235,211);
         }
 h1      {
             border-bottom: 3px solid rgb(50,50,50) ;
         }
+a:link{
+    color: cyan;
+}
+a:visited{
+    color: darkcyan;
+}
+a:hover{
+    color: lightcyan;
+}
+a:active{
+    color: #006b6b;
+}
 
 /*****   BASIC LAYOUT   *****/
 #container  {
@@ -111,7 +123,6 @@ h1      {
 #logindiv  {
                  width: 100%;
                  height: auto;
-                 background-color: darkcyan;
                  position: relative;
              }
 .h3             {
@@ -122,10 +133,21 @@ h1      {
                         margin-top: 5px;
                     }
 
-#registertable td   {
-                        height: 50px;
-                        border: 0;
-                    }
 .contenttitle       {
                         margin:0 0 25px 0;
                     }
+
+/*****   Register   *****/
+
+#littleHelpBox {
+    font-size: small;
+}
+
+#errorBox {
+    color: red;
+}
+
+#registertable td   {
+    height: 50px;
+    border: 0;
+}

@@ -26,7 +26,6 @@ $result = mysqli_query($db, $query);
 $row = mysqli_fetch_assoc($result);
 
 // Konto gehört angemeldetem User
-
 $accountOwnerID = $row['user_ID'];
 
 if($accountOwnerID != $user['user_ID'])
@@ -36,7 +35,6 @@ if($accountOwnerID != $user['user_ID'])
 }
 
 // Kontolimit ausrechnen
-
 $limit = $row['payment_limit'];
 
 $query = 'SELECT trans_amount FROM transaction WHERE DATE(execution_time) = CURDATE() AND trans_sender = ' . $from;
@@ -59,19 +57,31 @@ if($spentThisMonth >= $limit)
     header('Location: ../index.php?action=givemoney&error=' . $error);
 }
 else{
+    mysqli_begin_transaction($db);
+
     $query = "INSERT INTO transaction(trans_sender, trans_reciever, trans_amount, trans_type) VALUES($from, $to, $amount, '$type')";
 
-    mysqli_query($db, $query);
+    $try1 = mysqli_query($db, $query);
 
     $query = 'UPDATE account SET balance= balance + ' . $amount . ' WHERE acc_ID=' . $to;
 
-    mysqli_query($db, $query);
+    $try2 = mysqli_query($db, $query);
 
     $query = 'UPDATE account SET balance = balance - ' . $amount . ' WHERE acc_ID=' . $from;
 
-    mysqli_query($db, $query);
+    $try3 = mysqli_query($db, $query);
 
-    $error  = 0;
+    if($try1 && $try2 && $try3)
+    {
+        mysqli_commit($db);
+        $error  = 0;
+    }
+    else
+    {
+        mysqli_rollback($db);
+        $error  = 93;
+    }
+
 
     header('Location: ../index.php?action=givemoney&error=' . $error);
 }

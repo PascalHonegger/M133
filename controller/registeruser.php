@@ -16,8 +16,12 @@ if (!$ga->verifyCode($googleAuthenticatorSecret, $googleAuthenticatorCode, 2)) {
     $error = 2;
 }
 
-if (!preg_match('/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{8,}/', $selectedPassword)) {
+if (!preg_match($passwordRegularExpression, $selectedPassword)) {
     $error = 3;
+}
+
+if ($selectedUsername >= 40) {
+    $error = 4;
 }
 
 if ($error == 0) {
@@ -42,7 +46,8 @@ if ($error == 0) {
 
     if(mysqli_errno($db))
     {
-        header('Location: ../index.php?action=register&error='.mysqli_errno($db));
+        $error = 126;
+        header('Location: ../index.php?action=register&error='. $error);
     }
 
     $_SESSION['CurrentUser'] = $user;

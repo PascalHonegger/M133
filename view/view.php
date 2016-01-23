@@ -23,7 +23,7 @@
                     <li class="navbutton">Finanzplanung</li>
                 </a>
                 <a href="?action=givemoney">
-                    <li class="navbutton">Account</li>
+                    <li class="navbutton">Überweisungen</li>
                 </a>
             </ul>
         </div>

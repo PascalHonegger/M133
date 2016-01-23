@@ -1,12 +1,12 @@
 <h1>Registrieren</h1>
-<form action="controller/registeruser.php" method="post">
+<form onsubmit="return validateRegisterForm()" action="controller/registeruser.php" method="post">
     <table id="registertable">
         <tr>
             <td>
                 <label for="SelectedUsername">Benutzername: </label>
             </td>
             <td>
-                <input id="SelectedUsername" name="SelectedUsername" required="required">
+                <input id="SelectedUsername" name="SelectedUsername" required="required" maxlength="40">
             </td>
             <td></td>
             <td rowspan="4">
@@ -60,7 +60,7 @@
                 <label for="GoogleAuthenticatorCode">Generierter Code: </label>
             </td>
             <td>
-                <input id="GoogleAuthenticatorCode" name="GoogleAuthenticatorCode" required="required">
+                <input id="GoogleAuthenticatorCode" name="GoogleAuthenticatorCode" required="required" maxlength="6"> <a id="littleHelpBox" href="https://support.google.com/accounts/answer/1066447?hl=de">Hilfe</a>
             </td>
         </tr>
         <tr>
@@ -80,9 +80,13 @@
         </tr>
     </table>
 </form>
-
+<div id="errorBox">
+<p id="javscriptErrors"></p>
 <?php
+    if (isset($_GET['error'])) {
+        echo '<p>Registrierung fehlgeschlagen (Fehlercode ' . $_GET['error'] . ')! Bitte versuchen Sie es erneut!</p>';
+    }
+?>
 
-if (isset($_GET['error'])) {
-    echo '<p style="color: red;">Registrierung fehlgeschlagen (Fehlercode ' . $_GET['error'] . ')! Bitte versuchen Sie es erneut!</p>';
-}
+</div>
+

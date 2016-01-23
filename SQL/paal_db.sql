@@ -37,14 +37,6 @@ CREATE TABLE IF NOT EXISTS `account` (
   `acc_name` varchar(30) NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
---
--- Daten für Tabelle `account`
---
-
-INSERT INTO `account` (`acc_ID`, `balance`, `payment_limit`, `type`, `user_ID`, `acc_name`) VALUES
-(1, '9999999401.00', '2000000000.00', 'Jugendkonto', 3, 'NoSteuernInDaHuud'),
-(2, '599.10', '250.00', 'Privatkonto', 3, 'MoneyOutOfffffDaHuud');
-
 -- --------------------------------------------------------
 
 --
@@ -59,21 +51,6 @@ CREATE TABLE IF NOT EXISTS `transaction` (
   `trans_type` enum('Miete','Haushalt','Freizeit','Online','Einkaufen','Reisen','Gesundheit','Steuern & Versicherungen','Ferien','Diverses') NOT NULL,
   `execution_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
-
---
--- Daten für Tabelle `transaction`
---
-
-INSERT INTO `transaction` (`trans_ID`, `trans_amount`, `trans_sender`, `trans_reciever`, `trans_type`, `execution_time`) VALUES
-(1, '50.00', 1, 2, 'Haushalt', '2016-01-19 19:57:18'),
-(2, '1000.00', 1, 2, 'Diverses', '2016-01-19 19:57:51'),
-(3, '249.00', 2, 1, 'Miete', '2016-01-19 19:58:00'),
-(4, '1.00', 2, 1, 'Miete', '2016-01-19 19:58:05'),
-(5, '1.00', 2, 1, 'Miete', '2016-01-19 19:58:08'),
-(6, '100.00', 2, 1, 'Miete', '2016-01-19 19:59:43'),
-(7, '200.00', 2, 1, 'Miete', '2016-01-19 20:00:02'),
-(8, '233.00', 1, 1, 'Miete', '2016-01-19 20:00:26'),
-(9, '1.00', 1, 1, 'Miete', '2016-01-19 20:00:54');
 
 -- --------------------------------------------------------
 
@@ -90,14 +67,6 @@ CREATE TABLE IF NOT EXISTS `user` (
   `secret` varchar(16) NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
---
--- Daten für Tabelle `user`
---
-
-INSERT INTO `user` (`user_ID`, `username`, `firstname`, `lastname`, `password`, `secret`) VALUES
-(1, 'Pudcul', 'Pudcil', 'Qwer!1234', '$2y$11$UVFLUUJDWkVGREpNS1lWQu9LQSGV3lAN2NeqPgVj3ZAgx2QY62d5q', 'QQKQBCZEFDJMKYVC'),
-(2, 'TooMuchMoneyForYourLife', 'Seraphin', 'Rihm', '$2y$11$NkRDWU00M0NZNEZFQ0xMMelUnqYSQePN5ZblHWlFz4V9p2xOq4uES', '6DCYM43CY4FECLL2'),
-(3, 'Seraphun', 'seraphun', 'rheim', '$2y$11$RlA3WElIU0xVSFZZNFlQNePE0wiiSkzkyeSN4.jUTz9RQVqKNQ.Ly', 'FP7XIHSLUHVY4YP6');
 
 --
 -- Indizes der exportierten Tabellen

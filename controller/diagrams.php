@@ -2,8 +2,6 @@
 require_once '../include/db_connection.inc';
 require 'variables.php';
 
-echo $analysisType.'gege';
-
 if($analysisType == "transactionTimes")
 {
 
@@ -115,10 +113,7 @@ $diverses = $diverses['count'];
                     type: 'bar'
                 },
                 title: {
-                    text: 'Diagram'
-                },
-                subtitle: {
-                    text: 'Source: <a href="https://en.wikipedia.org/wiki/World_population">Wikipedia.org</a>'
+                    text: 'Diagram für <?php echo $account; ?>'
                 },
                 xAxis: {
                     categories: ['Miete', 'Haushalt', 'Freizeit', 'Online', 'Einkaufen', 'Reisen', 'Gesundheit', 'Steuern & Versicherungen', 'Ferien', 'Diverses'],
@@ -137,7 +132,7 @@ $diverses = $diverses['count'];
                     }
                 },
                 tooltip: {
-                    valueSuffix: ' millions'
+                    valueSuffix: ' Anzahl'
                 },
                 plotOptions: {
                     bar: {
@@ -292,10 +287,7 @@ $diverses = $diverses['count'];
                         type: 'bar'
                     },
                     title: {
-                        text: 'Diagram'
-                    },
-                    subtitle: {
-                        text: 'Source: <a href="https://en.wikipedia.org/wiki/World_population">Wikipedia.org</a>'
+                        text: 'Diagram für <?php echo $account; ?>'
                     },
                     xAxis: {
                         categories: ['Miete', 'Haushalt', 'Freizeit', 'Online', 'Einkaufen', 'Reisen', 'Gesundheit', 'Steuern & Versicherungen', 'Ferien', 'Diverses'],
@@ -306,7 +298,7 @@ $diverses = $diverses['count'];
                     yAxis: {
                         min: 0,
                         title: {
-                            text: 'Transaktionen',
+                            text: 'Geld',
                             align: 'high'
                         },
                         labels: {
@@ -314,7 +306,7 @@ $diverses = $diverses['count'];
                         }
                     },
                     tooltip: {
-                        valueSuffix: ' millions'
+                        valueSuffix: ' CHF'
                     },
                     plotOptions: {
                         bar: {

@@ -26,6 +26,6 @@ if ($checkResult && $passwordCorrect) {
     $_SESSION['CurrentUser'] = $user;
     header('Location: ../index.php?action=welcome');
 } else {
-    $error = 0;
+    $error = 132;
     header('Location: ../index.php?action=welcome&error='.$error);
 }

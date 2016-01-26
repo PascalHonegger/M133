@@ -2,8 +2,6 @@
 require_once '../include/db_connection.inc';
 require 'variables.php';
 
-$analysisType = isset($_POST['analysisType']) ? $_POST['analysisType'] : null;
-
 echo $analysisType.'gege';
 
 if($analysisType == "transactionTimes")

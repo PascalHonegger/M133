@@ -37,6 +37,6 @@ $result = mysqli_query($db, $query);
     <?php
         if($account != null)
         {
-            echo '<iframe id="auswertungDiagramme" src="controller/diagrams.php?account='.$account.'"></iframe>';
+            echo '<iframe id="auswertungDiagramme" src="controller/diagrams.php?account=' . $account . '&analysisType=' . $analysisType . '"></iframe>';
         }
     ?>

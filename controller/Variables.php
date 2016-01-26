@@ -20,6 +20,13 @@ $accountname = isset($_POST['accountname']) ? $_POST['accountname'] : null;
 $accounttype = isset($_POST['accounttype']) ? $_POST['accounttype'] : null;
 $limit = isset($_POST['limit']) ? $_POST['limit'] : null;
 
+if (isset($_POST['analysisType'])) {
+    $analysisType = $_POST['analysisType'];
+} elseif (isset($_GET['analysisType'])) {
+    $analysisType = $_GET['analysisType'];
+} else {
+    $analysisType = null;
+}
 
 if(isset($_POST['account']))
 {

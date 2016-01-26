@@ -13,8 +13,13 @@ $result = mysqli_query($db, $query);
 
 ?>
 <form action="" method="post">
+    <label for="analysisType">Typus: </label>
+        <select id="analysisType" name="analysisType" required="required">
+            <option value="transactionTimes">Anzahl Transaktionen</option>
+            <option value="transactionAmmount">Summe der Ausgaben</option>
+        </select>
     <label for="account">Account: </label>
-    <select id="account" name="account">
+    <select id="account" name="account" required="required">
         <?php
         while ($row = mysqli_fetch_array($result)) {
             $balance = $row['balance'];
@@ -27,6 +32,7 @@ $result = mysqli_query($db, $query);
         ?>
     </select>
     <input type="submit">
+    </form>
 
     <?php
         if($account != null)

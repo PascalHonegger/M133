@@ -39,7 +39,7 @@ if ($error == 0) {
 
     $hashedPassword = password_hash($selectedPassword, PASSWORD_BCRYPT, $options);
 
-    $query = "INSERT INTO user(username, firstname, lastname, password, secret) VALUES('?', '?', '?', '?', '?')";
+    $query = "INSERT INTO user(username, firstname, lastname, password, secret) VALUES(?, ?, ?, ?, ?)";
 
     $stmt = mysqli_prepare($db, $query);
 

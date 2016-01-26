@@ -49,7 +49,9 @@ if($accountOwnerID != $user['user_ID'])
 
     $stmt = mysqli_prepare($db, $query);
 
-    $stmt->bind_param('s',$from);
+    var_dump(mysqli_errno($db));
+
+    $stmt->bind_param('i', $from);
 
     $result = $stmt->execute();
 
@@ -70,7 +72,7 @@ if($accountOwnerID != $user['user_ID'])
     if($spentThisMonth >= $limit)
     {
         $error = 43;
-        //header('Location: ../index.php?action=givemoney&error=' . $error);
+        header('Location: ../index.php?action=givemoney&error=' . $error);
     }
     else{
         mysqli_begin_transaction($db);

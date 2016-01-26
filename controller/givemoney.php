@@ -25,7 +25,7 @@ $stmt = mysqli_prepare($db, $query);
 
 $stmt->bind_param('i',$from);
 
-$result = $stmt->execute();
+$stmt->execute();
 
 $result = $stmt->get_result();
 

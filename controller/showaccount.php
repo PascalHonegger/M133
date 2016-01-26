@@ -14,6 +14,7 @@ $result = mysqli_query($db, $query);
 
 while($row = mysqli_fetch_array($result))
 {
+    $id = $row['acc_ID'];
     $balance = $row['balance'];
     $type = $row['type'];
     $name = $row['acc_name'];

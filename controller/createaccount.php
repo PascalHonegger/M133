@@ -13,9 +13,7 @@ if($user != null)
 
     $stmt->bind_param('dsis',$limit, $accounttype, $userid, $accountname);
 
-    $stmt->execute();
-
-    $result = $stmt->get_result();
+    $result = $stmt->execute();
 
     $stmt->close();
 

@@ -24,7 +24,7 @@ if (!preg_match($passwordRegularExpression, $selectedPassword)) {
 }
 
 // Username is correct
-if ($selectedUsername >= 40) {
+if (strlen($selectedUsername) >= 40 || strlen($selectedUsername) <= 1) {
     $error = 4;
 }
 
@@ -50,15 +50,15 @@ if ($error == 0) {
     $stmt->close();
 
 
-    $query = "SELECT * FROM user WHERE username = '?' LIMIT 1";
+    $query = "SELECT * FROM user WHERE username = ? LIMIT 1";
 
     $stmt = mysqli_prepare($db, $query);
 
     $stmt->bind_param('s', $selectedUsername);
 
-    $result = $stmt->get_result();
-
     $stmt->execute();
+
+    $result = $stmt->get_result();
 
     $stmt->close();
 
@@ -68,11 +68,11 @@ if ($error == 0) {
     {
         $error = 126;
         header('Location: ../index.php?action=register&error='. $error);
+    } else {
+        $_SESSION['CurrentUser'] = $user;
+
+        header('Location: ../index.php?action=welcome');
     }
-
-    $_SESSION['CurrentUser'] = $user;
-
-    header('Location: ../index.php?action=welcome');
 } else {
     header('Location: ../index.php?action=register&error=' . $error);
 }

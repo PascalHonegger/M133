@@ -23,11 +23,10 @@ $result = mysqli_query($db, $query);
         <?php
         while ($row = mysqli_fetch_array($result)) {
             $balance = $row['balance'];
-            $type = $row['type'];
             $name = $row['acc_name'];
             $id = $row['acc_ID'];
 
-            echo '<option value="' . $id . '">' . $name . '</option>';
+            echo '<option value="' . $id . '">' . $name . ' (' . $id . ') </option>';
         }
         ?>
     </select>
